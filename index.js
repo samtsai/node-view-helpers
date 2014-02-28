@@ -10,14 +10,15 @@ var url = require('url')
  * Helpers method
  *
  * @param {String} name
+ * @param {String} title
  * @return {Function}
  * @api public
  */
 
-function helpers (name) {
+function helpers (name, title) {
   return function (req, res, next) {
     res.locals.appName = name || 'App'
-    res.locals.title = name || 'App'
+    res.locals.title = title || 'App'
     res.locals.req = req
     res.locals.isActive = function (link) {
       return req.url.indexOf(link) !== -1 ? 'active' : ''
